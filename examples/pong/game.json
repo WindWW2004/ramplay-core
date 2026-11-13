@@ -1,0 +1,13 @@
+{
+  "title": "Pong",
+  "author": "RamPlay",
+  "year": 2026,
+  "tags": [
+    "arcade",
+    "sports",
+    "example"
+  ],
+  "description": "One player against the console. First to 5.",
+  "added": "2026-11-13",
+  "featured": true
+}

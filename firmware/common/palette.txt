@@ -1,0 +1,19 @@
+// The default 16 colors, as RRGGBB. Index 0 first. Provisional (spec section 14).
+// Index 0 is transparent in sprites. Index 15 is the text color.
+// tools/gen_tables.py converts these to RGB565.
+000000  black
+20306C  deep blue
+3C78D8  blue
+6CC8F0  sky
+14503C  deep green
+2F9E5A  green
+A8DC5A  lime
+F4D03C  yellow
+E8842C  orange
+C83C30  red
+7C2850  maroon
+B45AC8  violet
+F0A0B4  pink
+7C5A3C  brown
+8C9098  gray
+FFFFFF  white

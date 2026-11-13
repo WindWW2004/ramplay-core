@@ -1,0 +1,13 @@
+build/
+node_modules/
+dist/
+lib/
+*.o
+*.rpl
+*.map
+*.lst
+*.tgz
+.DS_Store
+__pycache__/
+public/samples/
+public/files/
