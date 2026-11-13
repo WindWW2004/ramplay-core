@@ -36,7 +36,7 @@ function load(bytes: Uint8Array, name: string): void {
   paused = false;
   $('empty').hidden = true;
   $('r-title').textContent = made.cart.title || name;
-  $('note').textContent = 'Arrows move. Z is A, X is B, Enter is Start.';
+  $('note').textContent = 'Arrows or WASD move. Z or O is A, X or P is B, Enter is Start.';
   $<HTMLButtonElement>('btn-reset').disabled = $<HTMLButtonElement>('btn-pause').disabled = false;
   $('btn-pause').textContent = 'Pause';
   canvas.focus({ preventScroll: true });
@@ -65,11 +65,13 @@ $('btn-pause').addEventListener('click', () => { paused = !paused; $('btn-pause'
 const KEYS: Record<string, number> = {
   ArrowUp: BTN.UP, ArrowDown: BTN.DOWN, ArrowLeft: BTN.LEFT, ArrowRight: BTN.RIGHT,
   z: BTN.A, Z: BTN.A, x: BTN.B, X: BTN.B, Enter: BTN.START,
+  w: BTN.UP, W: BTN.UP, s: BTN.DOWN, S: BTN.DOWN, a: BTN.LEFT, A: BTN.LEFT, d: BTN.RIGHT, D: BTN.RIGHT,
+  o: BTN.A, O: BTN.A, p: BTN.B, P: BTN.B,
 };
 let held = 0;
 window.addEventListener('keydown', (e) => {
   const bit = KEYS[e.key];
-  if (!bit || !m.cart || e.target instanceof HTMLInputElement) return;
+  if (!bit || !m.cart || e.target instanceof HTMLInputElement || e.ctrlKey || e.metaKey || e.altKey) return;
   held |= bit;
   e.preventDefault();
 });
