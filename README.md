@@ -13,9 +13,13 @@ the RamPlay project's own platform.
 
 ## Install
 
+The package is not on the npm registry yet. Install it from the repository:
+
 ```
-npm install ramplay-core
+npm install github:ihozh/ramplay-core
 ```
+
+Site: https://ramplay.socialshields.org/core/
 
 It is plain ES modules with type declarations, and has no dependencies. It
 needs a browser or Node 20 or later.

@@ -13,6 +13,12 @@
     "fantasy-console",
     "retro"
   ],
+  "homepage": "https://ramplay.socialshields.org/core/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihozh/ramplay-core.git"
+  },
+  "bugs": "https://github.com/ihozh/ramplay-core/issues",
   "engines": {
     "node": ">=20"
   },
@@ -34,7 +40,7 @@
   ],
   "scripts": {
     "lib": "tsc -p tsconfig.build.json",
-    "prepack": "tsc -p tsconfig.build.json",
+    "prepare": "tsc -p tsconfig.build.json",
     "assets": "node scripts/assets.mjs",
     "dev": "node scripts/assets.mjs && vite",
     "build": "node scripts/assets.mjs && tsc --noEmit && vite build",
