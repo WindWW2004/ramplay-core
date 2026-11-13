@@ -39,7 +39,7 @@ function load(bytes: Uint8Array, name: string): void {
   $('note').textContent = 'Arrows move. Z is A, X is B, Enter is Start.';
   $<HTMLButtonElement>('btn-reset').disabled = $<HTMLButtonElement>('btn-pause').disabled = false;
   $('btn-pause').textContent = 'Pause';
-  canvas.focus();
+  canvas.focus({ preventScroll: true });
 }
 for (const b of document.querySelectorAll<HTMLButtonElement>('button[data-sample]')) {
   b.addEventListener('click', async () => {
@@ -58,7 +58,7 @@ $<HTMLInputElement>('rom-file').addEventListener('change', async (e) => {
   const f = (e.target as HTMLInputElement).files?.[0];
   if (f) load(new Uint8Array(await f.arrayBuffer()), f.name);
 });
-$('btn-reset').addEventListener('click', () => { reset(m); canvas.focus(); });
+$('btn-reset').addEventListener('click', () => { reset(m); canvas.focus({ preventScroll: true }); });
 $('btn-pause').addEventListener('click', () => { paused = !paused; $('btn-pause').textContent = paused ? 'Run' : 'Pause'; });
 
 // ---- buttons: the keyboard
