@@ -411,8 +411,7 @@ output for every vector. CI runs these on every push.
 ### 11.2 Core and platforms
 The software has two parts.
 
-**RamPlay Core** (this repository, the package `ramplay-core`) is the system: what the Linux
-kernel is to its distributions, core is to the platforms. Every cartridge runs on it. It is
+**RamPlay Core** (this repository, the package `ramplay-core`) is the system. Every cartridge runs on it. It is
 public: MIT licensed, packed as plain ES modules with type declarations (`npm pack`), with no dependencies, for anyone to build a platform on. It has
 no drawing in it, like the v2 engine, so a page, a lab bench, a grader or a Worker can run
 it, in a browser or in Node. Its whole interface is `src/index.ts`:
@@ -433,7 +432,7 @@ Core's tests (`test/`) are the CPU, the VIA, the machine, the protocol vectors o
 own (`index.html`, at `/core/` on the site): what core is, a bare console made of
 core, a canvas and a keyboard, the interface, and links to the platforms and documents.
 
-**A platform** is a distribution of core, everything around the system: where cartridges come from, where the
+**A platform** is everything around the system: where cartridges come from, where the
 picture goes, what the buttons are, how sound is made. Anyone can make one in a project
 of their own. It depends on `ramplay-core` and imports only from its interface. RamPlayer
 is the RamPlay project's own platform: a shelf, a cartridge shop, labels, upload and

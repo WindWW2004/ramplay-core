@@ -21,11 +21,8 @@
   <main class="ss-wrap">
     <section class="intro">
       <h2>What RamPlay Core is</h2>
-      <p class="ss-lede">RamPlay Core is the system that every RamPlay platform runs on, as Linux distributions
-        run on the Linux kernel. It emulates the console: a W65C02S, 16 KB of RAM, a VIA, a cartridge slot and
-        the display protocol. It does not include a shelf, a shop or any other user interface. Platforms add
-        those. Core is open source (MIT), and anyone can build a platform on it. RamPlayer is the RamPlay
-        project's own platform.</p>
+      <p class="ss-lede">RamPlay Core is the system that every RamPlay platform runs on: a W65C02S, 16 KB of RAM,
+        a VIA, a cartridge slot and the display protocol. Open source (MIT).</p>
     </section>
 
     <section class="bench ss-card" aria-label="A bare console">
@@ -35,7 +32,6 @@
       </div>
       <div class="bench-side">
         <h3>A bare console</h3>
-        <p>This console is core plus a canvas and a keyboard. Its code is shown below.</p>
         <div class="bar">
           <button class="ss-btn" data-sample="catch">Catch</button>
           <button class="ss-btn ss-btn--ghost" data-sample="hello">Hello</button>
@@ -58,7 +54,6 @@
     <section class="two">
       <div>
         <h3>The interface</h3>
-        <p>These are exported from <code>ramplay-core</code>. The README lists the rest.</p>
         <table class="api">
           <tbody>
             <tr><th>makeCart(bytes)</th><td>Check a 32768-byte image and read its header.</td></tr>
@@ -99,7 +94,6 @@ setInterval(() => {
   toRGBA(px, image.data);
   ctx.putImageData(image, 0, 0);
 }, 1000 / 30);</code></pre>
-        <p class="small">Without the canvas lines, the same code runs in Node. The tests run cartridges this way.</p>
       </div>
     </section>
 
@@ -108,13 +102,12 @@ setInterval(() => {
       <div class="tiles">
         <a class="tile ss-card" data-ramplayer href="../">
           <b>RamPlayer</b>
-          <span>The RamPlay project's platform, in the browser: a shelf of cartridges, a cartridge shop, covers, upload and review.</span>
+          <span>Play in the browser.</span>
           <i>Open</i>
         </a>
         <div class="tile ss-card next">
           <b>Your own platform</b>
-          <span>Install core in your own project with <code>npm install github:ihozh/ramplay-core</code>. Examples of what a
-            platform can be: a lab bench, a grader, a kiosk, a desktop app.</span>
+          <span><code>npm install github:ihozh/ramplay-core</code></span>
         </div>
       </div>
     </section>
@@ -122,9 +115,9 @@ setInterval(() => {
     <section>
       <h3>Read more</h3>
       <ul class="links">
-        <li><a href="https://github.com/ihozh/ramplay-core">Source on GitHub</a><span>The repository: specification, SDK, examples, tools, firmware and the system.</span></li>
+        <li><a href="https://github.com/ihozh/ramplay-core">Source on GitHub</a></li>
         <li><a href="./files/RAMPLAY_SPEC.md">The specification</a><span>Memory map, display protocol, cartridge format.</span></li>
-        <li><a href="./files/README.md">Core README</a><span>How to install it, the interface in full, and what a platform brings.</span></li>
+        <li><a href="./files/README.md">Core README</a></li>
         <li><a href="./files/ramplay.inc.txt">The SDK</a><span>ramplay.inc, the constants and macros a game starts from.</span></li>
         <li><a href="./files/hello.s.txt">hello.s</a><span>The smallest cartridge.</span></li>
         <li><a href="./files/from-nes.md">From the NES labs</a><span>What carries over from the SST 115 machines.</span></li>

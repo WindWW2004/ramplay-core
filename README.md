@@ -1,13 +1,11 @@
 # RamPlay Core
 
-The system under every RamPlay platform, the way the Linux kernel is under
-every Linux distribution. It is the console itself: a W65C02S, 16 KB of RAM,
+The system under every RamPlay platform. It is the console itself: a W65C02S, 16 KB of RAM,
 a W65C22S VIA, a cartridge slot and the display protocol. Every cartridge
 runs on it. It has no drawing, no sound and no file access in it, so it runs
 the same in a browser and in Node.
 
-A platform is built on core the way a distribution is built on the kernel.
-It can be a web page, a lab bench, a grader, a kiosk or a desktop app. Core is
+A platform is built on core. It can be a web page, a lab bench, a grader, a kiosk or a desktop app. Core is
 public and MIT licensed, so anyone can build a platform on it. RamPlayer is
 the RamPlay project's own platform.
 
