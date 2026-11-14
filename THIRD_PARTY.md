@@ -3,7 +3,7 @@
 No third-party code is copied into this repository, and the npm package has no
 dependencies.
 
-Build and test tools, not distributed with RamPlay Core:
+Build and test tools:
 
 | Tool | Used for | License |
 |------|----------|---------|

@@ -1,5 +1,5 @@
 /*
- * The RamPlay machine, with no drawing in it. The RamPlayer page animates it;
+ * The RamPlay machine, with no drawing in it. The RamPlay page animates it;
  * a lab page or a grader can run it in Node. It follows the v2 machine of the
  * NES Build labs (Farmingdale-115-lab, public/115/nes/v2/engine), one step on:
  *

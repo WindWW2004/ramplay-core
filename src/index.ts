@@ -2,7 +2,7 @@
  * RamPlay Core: the system under every RamPlay platform.
  * This file is its whole interface.
  * Core is public: anyone may build a platform on it. A platform imports from
- * here and from nowhere else in core. RamPlayer is the project's own platform.
+ * here and from nowhere else in core. The RamPlay site is built on it.
  *
  *   machine   createMachine, makeCart, insertCart, powerOn, reset, runFrame,
  *             setButtons, read, write, peek, stepInstruction, BTN, ...

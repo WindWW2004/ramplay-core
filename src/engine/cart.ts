@@ -4,7 +4,7 @@
  *
  * As in v2, the CPU does not look at a header: it reads the reset vector at
  * $FFFC/$FFFD and runs. The fields at $FF00-$FF54 are for tools, for
- * RamPlayer's cartridge panel, and later for Root.
+ * RamPlay's cartridge panel, and later for Root.
  *
  * SPDX-License-Identifier: MIT
  */

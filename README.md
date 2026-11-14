@@ -6,12 +6,10 @@ runs on it. It has no drawing, no sound and no file access in it, so it runs
 the same in a browser and in Node.
 
 A platform is built on core. It can be a web page, a lab bench, a grader, a kiosk or a desktop app. Core is
-public and MIT licensed, so anyone can build a platform on it. RamPlayer is
-the RamPlay project's own platform.
+public and MIT licensed, so anyone can build a platform on it. The RamPlay site
+(ramplay.socialshields.org) is built on it.
 
 ## Install
-
-The package is not on the npm registry yet. Install it from the repository:
 
 ```
 npm install github:ihozh/ramplay-core

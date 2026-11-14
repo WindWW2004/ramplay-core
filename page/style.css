@@ -1,5 +1,5 @@
 /* The core page: layout only. Colors, type, radii, .ss-home, .ss-btn, .ss-card
-   and .ss-footer come from brand.css, as on RamPlayer. */
+   and .ss-footer come from brand.css, as on RamPlay. */
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
 body.ss { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
@@ -13,8 +13,25 @@ header.page h1::before { content: ""; display: inline-block; width: 1px; height:
 header.page .spacer { flex: 1; }
 header.page .ss-btn { min-height: 40px; }
 
-.intro h2 { font: 800 clamp(24px, 4vw, 32px)/1.1 var(--ss-head); letter-spacing: -0.01em; color: var(--ss-ink); margin: 0 0 12px; }
-.intro .ss-lede { max-width: 62ch; }
+header.page nav.top { display: flex; gap: 4px 20px; flex-wrap: wrap; justify-content: flex-end; }
+header.page nav.top a { font-size: 14px; font-weight: 600; color: var(--ss-ink); text-decoration: none; padding: 12px 0; }
+header.page nav.top a:hover { color: var(--ss-green); text-decoration: underline; }
+
+.hero { margin-top: 56px; }
+.hero h2 { font: 800 clamp(30px, 6vw, 52px)/1.04 var(--ss-head); letter-spacing: -0.02em; color: var(--ss-ink); margin: 0 0 14px; max-width: 16ch; }
+.hero .ss-lede { max-width: 56ch; }
+.install { display: flex; align-items: center; gap: 12px; width: fit-content; max-width: 100%; margin-top: 22px; padding: 6px 6px 6px 16px; background: #070707; border-radius: var(--ss-radius); }
+.install code { color: #e9e9e9; font: 14px/1.4 var(--ss-mono); overflow-x: auto; white-space: nowrap; }
+.install code::before { content: "$ "; color: #8c9098; }
+.copy { flex: none; min-height: 36px; padding: 0 14px; border: 0; border-radius: calc(var(--ss-radius) - 4px); background: #2b2e31; color: #fdfdfd; font: 600 13px var(--ss-body); cursor: pointer; }
+.copy:hover { background: #3a3e42; }
+.copy:focus-visible { outline: 2px solid var(--ss-gold); outline-offset: 2px; }
+.hero-act { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.hero-act .ss-btn { min-height: 44px; }
+.facts { display: flex; flex-wrap: wrap; gap: 6px 8px; list-style: none; margin: 18px 0 0; padding: 0; }
+.facts li { font: 500 12.5px/1 var(--ss-mono); color: var(--ss-ink); padding: 6px 10px; border: 1px solid var(--ss-line); border-radius: 999px; background: var(--ss-card); }
+main > section[id] { scroll-margin-top: 16px; }
+.tile.ss-card { max-width: 420px; }
 .ss main h3 { font: 600 19px/1.35 var(--ss-nav); letter-spacing: 0; color: var(--ss-ink); margin: 0 0 8px; }
 main p { color: var(--ss-muted); line-height: 1.5; }
 main code { font: 13px/1.4 var(--ss-mono); color: var(--ss-ink); }
@@ -60,8 +77,11 @@ a.tile:hover { transform: translateY(-2px); }
 .links span { color: var(--ss-muted); font-size: 14px; }
 
 @media (max-width: 760px) {
+  header.page nav.top a[href^='#'] { display: none; }
+  .hero { margin-top: 32px; }
   .bench, .two, .tiles { grid-template-columns: minmax(0, 1fr); }
   .bench { padding: 14px; }
   .api th { white-space: normal; }
 }
 @media (prefers-reduced-motion: reduce) { a.tile { transition: none; } }
+.hero-act a.ss-btn:not(.ss-btn--ghost) { color: #fdfdfd; }

@@ -15,23 +15,40 @@
     <a class="ss-home" href="https://socialshields.org/"><img src="./shield.svg" width="32" height="32" alt=""><span>Social Shields</span></a>
     <h1>RamPlay Core</h1>
     <span class="spacer"></span>
-    <a class="ss-btn ss-btn--ghost" data-ramplayer href="../">RamPlayer</a>
+    <nav class="top" aria-label="Sections">
+      <a href="#start">Quick start</a>
+      <a href="#api">API</a>
+      <a href="#docs">Docs</a>
+      <a href="https://github.com/ihozh/ramplay-core">GitHub</a>
+    </nav>
   </header>
 
   <main class="ss-wrap">
-    <section class="intro">
-      <h2>What RamPlay Core is</h2>
-      <p class="ss-lede">RamPlay Core is the system that every RamPlay platform runs on: a W65C02S, 16 KB of RAM,
-        a VIA, a cartridge slot and the display protocol. Open source (MIT).</p>
+    <section class="hero">
+      <h2>A 6502 game console in TypeScript</h2>
+      <p class="ss-lede">W65C02S, 16 KB of RAM, 32 KB cartridges, a 160 x 128 display. Runs in the browser and in Node.</p>
+      <div class="install">
+        <code id="install-cmd">npm install github:ihozh/ramplay-core</code>
+        <button id="btn-copy" class="copy" aria-label="Copy the install command">Copy</button>
+      </div>
+      <div class="hero-act">
+        <a class="ss-btn" href="#start">Quick start</a>
+        <a class="ss-btn ss-btn--ghost" href="https://github.com/ihozh/ramplay-core">GitHub</a>
+      </div>
+      <ul class="facts">
+        <li id="version">v0.1.0</li>
+        <li>MIT</li>
+        <li>No dependencies</li>
+        <li>Types included</li>
+      </ul>
     </section>
 
-    <section class="bench ss-card" aria-label="A bare console">
+    <section id="demo" class="bench ss-card" aria-label="Demo">
       <div class="bench-screen">
         <canvas id="screen" width="160" height="128" tabindex="0" aria-label="RamPlay screen"></canvas>
         <p class="empty" id="empty">No cartridge</p>
       </div>
       <div class="bench-side">
-        <h3>A bare console</h3>
         <div class="bar">
           <button class="ss-btn" data-sample="catch">Catch</button>
           <button class="ss-btn ss-btn--ghost" data-sample="hello">Hello</button>
@@ -51,28 +68,8 @@
       </div>
     </section>
 
-    <section class="two">
-      <div>
-        <h3>The interface</h3>
-        <table class="api">
-          <tbody>
-            <tr><th>makeCart(bytes)</th><td>Check a 32768-byte image and read its header.</td></tr>
-            <tr><th>createMachine()</th><td>A console with the power off and the slot empty.</td></tr>
-            <tr><th>insertCart(m, cart)</th><td>Put a cartridge in. <code>removeCart</code> takes it out.</td></tr>
-            <tr><th>powerOn(m)</th><td>Clear RAM and start from the reset vector. <code>reset</code> keeps RAM.</td></tr>
-            <tr><th>setButtons(m, bits)</th><td>Hold buttons. <code>BTN</code> names the bits.</td></tr>
-            <tr><th>runFrame(m)</th><td>Run 33333 cycles, to the next VBLANK.</td></tr>
-            <tr><th>renderFrame(m.picture, px)</th><td>The frame as 160 x 128 RGB565 pixels.</td></tr>
-            <tr><th>m.sounds</th><td>SOUND commands since you last looked. You play them.</td></tr>
-            <tr><th>read, write, peek</th><td>The bus, for a debugger or a grader.</td></tr>
-            <tr><th>stepInstruction(m)</th><td>One CPU instruction. <code>disassemble</code> names it.</td></tr>
-            <tr><th>embedCart, extractCart</th><td>A cartridge as a PNG picture, both ways.</td></tr>
-            <tr><th>coverOf(rom), labelOf(rom)</th><td>The cartridge's own picture, for a shelf.</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div>
-        <h3>Example</h3>
+    <section id="start">
+      <h3>Quick start</h3>
 <pre class="code"><code>import {
   createMachine, makeCart, insertCart, powerOn,
   setButtons, runFrame, renderFrame, toRGBA,
@@ -94,38 +91,52 @@ setInterval(() => {
   toRGBA(px, image.data);
   ctx.putImageData(image, 0, 0);
 }, 1000 / 30);</code></pre>
-      </div>
+    </section>
+
+    <section id="api">
+      <h3>API</h3>
+        <table class="api">
+          <tbody>
+            <tr><th>makeCart(bytes)</th><td>Check a 32768-byte image and read its header.</td></tr>
+            <tr><th>createMachine()</th><td>A console with the power off and the slot empty.</td></tr>
+            <tr><th>insertCart(m, cart)</th><td>Put a cartridge in. <code>removeCart</code> takes it out.</td></tr>
+            <tr><th>powerOn(m)</th><td>Clear RAM and start from the reset vector. <code>reset</code> keeps RAM.</td></tr>
+            <tr><th>setButtons(m, bits)</th><td>Hold buttons. <code>BTN</code> names the bits.</td></tr>
+            <tr><th>runFrame(m)</th><td>Run 33333 cycles, to the next VBLANK.</td></tr>
+            <tr><th>renderFrame(m.picture, px)</th><td>The frame as 160 x 128 RGB565 pixels.</td></tr>
+            <tr><th>m.sounds</th><td>SOUND commands since you last looked. You play them.</td></tr>
+            <tr><th>read, write, peek</th><td>The bus, for a debugger or a grader.</td></tr>
+            <tr><th>stepInstruction(m)</th><td>One CPU instruction. <code>disassemble</code> names it.</td></tr>
+            <tr><th>embedCart, extractCart</th><td>A cartridge as a PNG picture, both ways.</td></tr>
+            <tr><th>coverOf(rom), labelOf(rom)</th><td>The cartridge's own picture, for a shelf.</td></tr>
+          </tbody>
+        </table>
+    </section>
+
+    <section id="docs">
+      <h3>Docs</h3>
+      <ul class="links">
+        <li><a href="./files/README.md">README</a><span>Install and the full API.</span></li>
+        <li><a href="./files/RAMPLAY_SPEC.md">Specification</a><span>Memory map, display protocol, cartridge format.</span></li>
+        <li><a href="./files/ramplay.inc.txt">ramplay.inc</a><span>The SDK for ca65.</span></li>
+        <li><a href="./files/hello.s.txt">hello.s</a><span>The smallest cartridge.</span></li>
+        <li><a href="https://github.com/ihozh/ramplay-core/blob/main/CONTRIBUTING.md">Contributing</a><span>Issues and pull requests.</span></li>
+      </ul>
     </section>
 
     <section>
-      <h3>Platforms</h3>
+      <h3>Built with it</h3>
       <div class="tiles">
         <a class="tile ss-card" data-ramplayer href="../">
-          <b>RamPlayer</b>
+          <b>RamPlay</b>
           <span>Play in the browser.</span>
           <i>Open</i>
         </a>
-        <div class="tile ss-card next">
-          <b>Your own platform</b>
-          <span><code>npm install github:ihozh/ramplay-core</code></span>
-        </div>
       </div>
-    </section>
-
-    <section>
-      <h3>Read more</h3>
-      <ul class="links">
-        <li><a href="https://github.com/ihozh/ramplay-core">Source on GitHub</a></li>
-        <li><a href="./files/RAMPLAY_SPEC.md">The specification</a><span>Memory map, display protocol, cartridge format.</span></li>
-        <li><a href="./files/README.md">Core README</a></li>
-        <li><a href="./files/ramplay.inc.txt">The SDK</a><span>ramplay.inc, the constants and macros a game starts from.</span></li>
-        <li><a href="./files/hello.s.txt">hello.s</a><span>The smallest cartridge.</span></li>
-        <li><a href="./files/from-nes.md">From the NES labs</a><span>What carries over from the SST 115 machines.</span></li>
-      </ul>
     </section>
   </main>
 
-  <footer class="ss-footer">Farmingdale State College</footer>
+  <footer class="ss-footer">MIT License · Farmingdale State College</footer>
   <script type="module" src="./page/main.ts"></script>
 </body>
 </html>

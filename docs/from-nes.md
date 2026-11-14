@@ -3,7 +3,7 @@
 RamPlay is the third machine of the SST 115 NES Build series. The first two
 are in the lab repository (`Farmingdale-115-lab`, `public/115/nes/` and
 `public/115/nes/v2/`). They are drawings that behave like a console. RamPlay
-is the same idea with real parts, and RamPlayer, a web page that matches the parts.
+is the same idea with real parts, and RamPlay, a web page that matches the parts.
 
 ## What each machine is
 
@@ -42,15 +42,15 @@ is the same idea with real parts, and RamPlayer, a web page that matches the par
   Its header comment lists the five changes.
 - **The engine layout.** `core/src/engine/` has `cart`, `bus`, `cpu`,
   `machine`, as v2 does, and adds `via`. It has no drawing in it, so a lab
-  page or a Worker can grade with it. The engine is RamPlay Core; RamPlayer
+  page or a Worker can grade with it. The engine is RamPlay Core; RamPlay
   is a platform built on it, in a repository of its own.
-- **The bench API.** RamPlayer answers to `window.ramplay` the way
+- **The bench API.** RamPlay answers to `window.ramplay` the way
   the Lab 9 bench answers to `window.nes`, and takes `?embed=1`.
 
 ## What is new for the student
 
 1. **Registers and a stack.** `JSR`, `RTS`, `PHA`, `PLA`, indexed addressing.
-2. **A peripheral chip.** The screen is not memory any more. A write to
+2. **A peripheral chip.** The screen is a chip on the bus. A write to
    `$6000` is a byte on eight wires and a pulse on CB2.
 3. **A protocol.** Opcode, arguments, no framing. `tests/protocol/` is 12
    byte streams and the picture each must give.
@@ -63,7 +63,7 @@ is the same idea with real parts, and RamPlayer, a web page that matches the par
 
 - The v2 game ran at 60 frames a second. RamPlay runs at 30, so catch halves
   its counts: the bowl moves every 2 frames, the item falls every 8.
-- BEST is in console RAM. It survives Reset and not power off. That is a
-  stage by itself: Reset is not power.
-- Without `rpl_init` nothing reaches the screen. RamPlayer counts those
+- BEST is in console RAM. It survives Reset; power off clears it. That is a
+  stage by itself.
+- Without `rpl_init` nothing reaches the screen. RamPlay counts those
   bytes in `via.dropped`.

@@ -3,7 +3,7 @@
  *
  * A cartridge PNG is an ordinary PNG of the cartridge with one extra chunk,
  * `rpLc`, that holds the game. PNG lets a file carry private chunks; viewers
- * skip the ones they do not know. So the picture opens anywhere, and RamPlayer
+ * skip the ones they do not know. So the picture opens anywhere, and RamPlay
  * finds the game in it.
  *
  *   rpLc data:  byte 0        format version, 1

@@ -198,7 +198,7 @@ Exact rules, so the firmware and the emulator agree:
 - `BGROW`: exactly `n` tile bytes are consumed, whatever `n` is. Only the first 32
   are stored. `n = 0` stores nothing.
 - `CLEAR` sets every sprite to `x=0, y=0, tile=0, attr=0`.
-- `SOUND` takes effect at once, not at the next frame.
+- `SOUND` takes effect at once.
 - `$FF` is RESYNC only where an opcode is expected. Inside an argument list it is data.
 
 ### 6.4 Shared reference implementation
@@ -288,9 +288,9 @@ header is for tools, the emulator's cartridge panel, and Root (§9).
 
 ### 8.3 Cartridge PNG (a game as a picture)
 
-RamPlayer can save any cartridge on the shelf as a PNG: a drawing of the cartridge with
+RamPlay can save any cartridge on the shelf as a PNG: a drawing of the cartridge with
 the game's own title screen on its label. The file is also the game. Whoever has the
-picture has the game: adding the file in RamPlayer puts the cartridge on their shelf.
+picture has the game: adding the file in RamPlay puts the cartridge on their shelf.
 
 The game is in one extra PNG chunk, `rpLc` (ancillary, private, safe to copy), placed
 just before `IEND`:
@@ -302,16 +302,15 @@ just before `IEND`:
 | `n` bytes | information: JSON, UTF-8 (`id`, `title`, `author`, `year`, `tags`, `description`) |
 | 32768 bytes | the `.rpl` image, unchanged |
 
-- The ROM is stored as it is, not compressed and not hidden, so it can be cut out with a
+- The ROM is stored as it is, so it can be cut out with a
   hex editor (the dumping lab uses this). The chunk CRC that every PNG chunk has catches
   a damaged file.
 - This is our own layout. It does not hide data in the pixels, and the picture is our own
   drawing (§1.2).
 - Limit: an app that re-encodes pictures (most chat and social apps, a screenshot) drops
   the chunk, and the game with it. The file itself has to be sent: mail attachment, file
-  share, AirDrop, a course site upload. RamPlayer says so when a picture has no game in it.
-- A picture whose `id` is a library game puts the library's copy on the shelf, not the
-  bytes in the picture.
+  share, AirDrop, a course site upload. RamPlay says so when a picture has no game in it.
+- A picture whose `id` is a library game puts the library's copy on the shelf.
 - Code: `src/cartpng.ts` (read and write). The picture itself is drawn by the platform.
 
 ### 8.4 Label mode (a cartridge draws its own label)
@@ -434,7 +433,7 @@ core, a canvas and a keyboard, the interface, and links to the platforms and doc
 
 **A platform** is everything around the system: where cartridges come from, where the
 picture goes, what the buttons are, how sound is made. Anyone can make one in a project
-of their own. It depends on `ramplay-core` and imports only from its interface. RamPlayer
+of their own. It depends on `ramplay-core` and imports only from its interface. RamPlay
 is the RamPlay project's own platform: a shelf, a cartridge shop, labels, upload and
 review. It is in a separate repository. Core does not contain platform code.
 
@@ -500,7 +499,7 @@ test vectors.
       `$FF` is valid data there. Only CPU reset does. Decide whether that is enough.
 - [ ] C runtime (`crt0`) for cc65, so `sdk/ramplay.h` can be used for a whole game.
 - [ ] The cartridge has no SRAM, so catch keeps its best score in console RAM (it
-      survives Reset, not power off). v2 kept it on the cartridge with a battery.
+      survives Reset; power off clears it). v2 kept it on the cartridge with a battery.
 - v0.1 — initial spec (working name Lit-8).
 - v0.2 — renamed to RamPlay; prefixes `rpl_` / `RPL_`, image extension `.rpl`,
   magic `"RPL1"`; secure-boot feature named Root.
@@ -509,8 +508,8 @@ test vectors.
   choice in §6.4, `RPL_HEADER` / `rpl_cmd` / `rpl_print` and the `rpl_wait_vblank`
   contract in §10, `tools/rplinfo.py` and `tools/gen_tables.py`, §11.2 (engine layout,
   `window.ramplay`), `examples/catch`.
-- [ ] Cartridge PNG and §1.2: PICO-8 also ships games as PNG pictures of a cartridge. Ours is a different mechanism (a PNG chunk, not hidden pixel bits) and our own drawing, but the idea is the same. Decide whether that is far enough from "imitate" before a public release.
+- [ ] Cartridge PNG and §1.2: PICO-8 also ships games as PNG pictures of a cartridge. Ours uses a PNG chunk and our own drawing. The idea is the same. Decide whether that is far enough from "imitate" before a public release.
 - v0.23 — a cartridge can draw its own label: header byte `$FF55`, label mode with Left and Right held at power-on (§8.2, §8.4), `RPL_LABEL` in the SDK.
 - v0.24 — the software is two parts: RamPlay Core, the system, and platforms built on it (§11.2).
 - v0.25 — core is public and packable for others to use (`lib/`, type declarations) (§11.2).
-- v0.26 — this repository is RamPlay Core only: the specification, the SDK, the examples, the tools, the firmware, the protocol vectors and the TypeScript system. RamPlayer, its server and the project's games moved to their own repository, and so did their sections of this file (old §11 and §11.3).
+- v0.26 — this repository is RamPlay Core only: the specification, the SDK, the examples, the tools, the firmware, the protocol vectors and the TypeScript system. RamPlay, its server and the project's games moved to their own repository, and so did their sections of this file (old §11 and §11.3).
