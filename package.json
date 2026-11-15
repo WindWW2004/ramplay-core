@@ -3,14 +3,13 @@
   "version": "0.1.0",
   "type": "module",
   "license": "MIT",
-  "description": "RamPlay Core: the system under every RamPlay platform. A W65C02S 8-bit teaching console (CPU, VIA, cartridge, display protocol) for a browser or Node.",
+  "description": "RamPlay Core: the computer inside RamPlay. A W65C02S, a VIA, a cartridge slot and a display protocol, for a browser or Node.",
   "keywords": [
     "6502",
     "65c02",
     "emulator",
     "8-bit",
     "teaching",
-    "fantasy-console",
     "retro"
   ],
   "homepage": "https://ramplay.socialshields.org/core/",

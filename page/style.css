@@ -36,23 +36,6 @@ main > section[id] { scroll-margin-top: 16px; }
 main p { color: var(--ss-muted); line-height: 1.5; }
 main code { font: 13px/1.4 var(--ss-mono); color: var(--ss-ink); }
 
-/* The bare console: the screen and what the machine says about itself. */
-.bench { display: grid; grid-template-columns: minmax(0, 480px) minmax(0, 1fr); gap: 24px; padding: 20px; align-items: start; }
-.bench-screen { position: relative; background: #070707; border-radius: var(--ss-radius); padding: 12px; }
-.bench-screen canvas { display: block; width: 100%; aspect-ratio: 160 / 128; image-rendering: pixelated; background: #000; border-radius: 4px; }
-.bench-screen canvas:focus-visible { outline: 3px solid var(--ss-gold); outline-offset: 3px; }
-.bench-screen .empty { position: absolute; inset: 0; display: grid; place-items: center; color: #8c9098; font: 14px var(--ss-mono); pointer-events: none; }
-.bench .bar { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-.bench .ss-btn { min-height: 44px; }
-.bench .ss-btn:disabled { opacity: .45; cursor: default; }
-.file { position: relative; overflow: hidden; cursor: pointer; }
-.file input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
-.readout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 16px; margin: 16px 0 0; }
-.readout div { border-top: 1px solid var(--ss-line); padding-top: 6px; min-width: 0; }
-.readout dt { font-size: 12px; color: var(--ss-muted); }
-.readout dd { margin: 0; font: 15px/1.4 var(--ss-mono); color: var(--ss-ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.keys { font-size: 13px; margin-top: 12px; }
-
 .two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; align-items: start; }
 .api { width: 100%; border-collapse: collapse; margin-top: 8px; }
 .api th, .api td { text-align: left; vertical-align: top; padding: 7px 0; border-top: 1px solid var(--ss-line); font-size: 14px; line-height: 1.4; }
@@ -79,8 +62,7 @@ a.tile:hover { transform: translateY(-2px); }
 @media (max-width: 760px) {
   header.page nav.top a[href^='#'] { display: none; }
   .hero { margin-top: 32px; }
-  .bench, .two, .tiles { grid-template-columns: minmax(0, 1fr); }
-  .bench { padding: 14px; }
+  .two, .tiles { grid-template-columns: minmax(0, 1fr); }
   .api th { white-space: normal; }
 }
 @media (prefers-reduced-motion: reduce) { a.tile { transition: none; } }

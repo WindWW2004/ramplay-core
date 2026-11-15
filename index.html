@@ -25,8 +25,8 @@
 
   <main class="ss-wrap">
     <section class="hero">
-      <h2>A 6502 game console in TypeScript</h2>
-      <p class="ss-lede">W65C02S, 16 KB of RAM, 32 KB cartridges, a 160 x 128 display. Runs in the browser and in Node.</p>
+      <h2>The computer inside RamPlay</h2>
+      <p class="ss-lede">A W65C02S, 16 KB of RAM, a cartridge slot and a 160 x 128 screen.</p>
       <div class="install">
         <code id="install-cmd">npm install github:ihozh/ramplay-core</code>
         <button id="btn-copy" class="copy" aria-label="Copy the install command">Copy</button>
@@ -41,31 +41,6 @@
         <li>No dependencies</li>
         <li>Types included</li>
       </ul>
-    </section>
-
-    <section id="demo" class="bench ss-card" aria-label="Demo">
-      <div class="bench-screen">
-        <canvas id="screen" width="160" height="128" tabindex="0" aria-label="RamPlay screen"></canvas>
-        <p class="empty" id="empty">No cartridge</p>
-      </div>
-      <div class="bench-side">
-        <div class="bar">
-          <button class="ss-btn" data-sample="catch">Catch</button>
-          <button class="ss-btn ss-btn--ghost" data-sample="hello">Hello</button>
-          <label class="ss-btn ss-btn--ghost file">Open<input id="rom-file" type="file" accept=".rpl,.bin,.png,image/png"></label>
-        </div>
-        <div class="bar">
-          <button id="btn-reset" class="ss-btn ss-btn--ghost" disabled>Reset</button>
-          <button id="btn-pause" class="ss-btn ss-btn--ghost" disabled>Pause</button>
-        </div>
-        <dl class="readout" aria-live="off">
-          <div><dt>Cartridge</dt><dd id="r-title">none</dd></div>
-          <div><dt>Frame</dt><dd id="r-frame">0</dd></div>
-          <div><dt>PC</dt><dd id="r-pc">$0000</dd></div>
-          <div><dt>Bytes sent</dt><dd id="r-bytes">0</dd></div>
-        </dl>
-        <p class="keys" id="note">Arrows or WASD move. Z or O is A, X or P is B, Enter is Start.</p>
-      </div>
     </section>
 
     <section id="start">
@@ -98,7 +73,7 @@ setInterval(() => {
         <table class="api">
           <tbody>
             <tr><th>makeCart(bytes)</th><td>Check a 32768-byte image and read its header.</td></tr>
-            <tr><th>createMachine()</th><td>A console with the power off and the slot empty.</td></tr>
+            <tr><th>createMachine()</th><td>A machine with the power off and the slot empty.</td></tr>
             <tr><th>insertCart(m, cart)</th><td>Put a cartridge in. <code>removeCart</code> takes it out.</td></tr>
             <tr><th>powerOn(m)</th><td>Clear RAM and start from the reset vector. <code>reset</code> keeps RAM.</td></tr>
             <tr><th>setButtons(m, bits)</th><td>Hold buttons. <code>BTN</code> names the bits.</td></tr>

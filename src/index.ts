@@ -1,5 +1,5 @@
 /*
- * RamPlay Core: the system under every RamPlay platform.
+ * RamPlay Core: the system RamPlay platforms are built on.
  * This file is its whole interface.
  * Core is public: anyone may build a platform on it. A platform imports from
  * here and from nowhere else in core. The RamPlay site is built on it.

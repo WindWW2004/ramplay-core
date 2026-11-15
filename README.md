@@ -1,8 +1,7 @@
 # RamPlay Core
 
-The system under every RamPlay platform. It is the console itself: a W65C02S, 16 KB of RAM,
-a W65C22S VIA, a cartridge slot and the display protocol. Every cartridge
-runs on it. It has no drawing, no sound and no file access in it, so it runs
+RamPlay Core is the computer inside RamPlay: a W65C02S, 16 KB of RAM, a
+W65C22S VIA, a cartridge slot and the display protocol. It does no drawing, makes no sound and reads no files, so it runs
 the same in a browser and in Node.
 
 A platform is built on core. It can be a web page, a lab bench, a grader, a kiosk or a desktop app. Core is
@@ -48,7 +47,7 @@ table below is a new major version.
 | Group | Names | What for |
 |---|---|---|
 | Cartridge | `makeCart`, `Cart`, `ROM_SIZE`, `ROM_BASE` | check an image, read its header |
-| Machine | `createMachine`, `insertCart`, `removeCart`, `powerOn`, `powerOff`, `reset` | the console and its switches |
+| Machine | `createMachine`, `insertCart`, `removeCart`, `powerOn`, `powerOff`, `reset` | the machine and its switches |
 | Time | `runFrame`, `runFrames`, `stepInstruction`, `FPS`, `CPU_HZ`, `CYCLES_PER_FRAME` | one frame, or one instruction |
 | Buttons | `setButtons`, `BTN` | pressed = 1, as the SDK reports them |
 | Picture | `renderFrame`, `toRGBA`, `SCREEN_W`, `SCREEN_H`, `m.picture` | the frame as pixels |
@@ -56,7 +55,7 @@ table below is a new major version.
 | Bus | `read`, `write`, `peek`, `chipAt`, `cellOf` | for a debugger or a grader |
 | CPU | `disassemble`, `flagsText`, `m.cpu` | registers and listings |
 | Stream | `createState`, `parseByte`, `parserBusy`, `OP_NAMES`, `m.log` | the display protocol on its own |
-| Tables | `FONT`, `DEFAULT_PALETTE` | the console font and the power-on colors |
+| Tables | `FONT`, `DEFAULT_PALETTE` | the font and the power-on colors |
 | Cartridge PNG | `embedCart`, `extractCart`, `isPng` | a game as a picture, spec section 8.3 |
 | Snapshot | `coverOf`, `labelOf` | a cartridge's own picture, for a shelf |
 
@@ -72,9 +71,6 @@ Core leaves these to the platform:
 - What the buttons are: a keyboard, a gamepad, a script.
 - How sound is made.
 - When frames run: a timer at 30 a second, or as fast as possible in a test.
-
-`page/main.ts` in the repository is a small example platform: core, a canvas,
-a keyboard and a square wave, in about a hundred lines.
 
 ## Cartridges
 
